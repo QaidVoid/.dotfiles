@@ -1,0 +1,10 @@
+#!/bin/env bash
+
+git clone --bare git@github.com:QaidVoid/.dotfiles.git $HOME/.dotfiles
+
+function dotfiles {
+  /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
+}
+
+dotfiles checkout -f
+dotfiles config status.showUntrackedFiles no

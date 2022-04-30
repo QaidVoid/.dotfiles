@@ -42,6 +42,7 @@ if command -v yarn &> /dev/null; then
   export PATH="$(yarn global bin --offline):$PATH"
 fi
 
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
@@ -57,3 +58,4 @@ PERL_MB_OPT="--install_base \"/home/qaidvoid/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/qaidvoid/perl5"; export PERL_MM_OPT;
 
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"

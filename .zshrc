@@ -12,7 +12,7 @@ bindkey -v
 stty stop undef
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/qaidvoid/.zshrc'
+zstyle :compinstall filename '$HOME/.zshrc'
 zstyle ':completion::complete:*' use-cache 1
 
 autoload -Uz compinit
@@ -51,11 +51,11 @@ alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 alias ls="exa"
 alias cat="bat"
 
-PATH="/home/qaidvoid/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/qaidvoid/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/qaidvoid/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/qaidvoid/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/qaidvoid/perl5"; export PERL_MM_OPT;
+PATH="$HOME/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"

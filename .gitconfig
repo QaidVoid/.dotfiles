@@ -1,0 +1,8 @@
+[user]
+	email = qaidvoid@gmail.com
+	name = QaidVoid
+	signingkey = 06F7A34A2AE4FFB6
+[commit]
+	gpgsign = true
+[init]
+	defaultBranch = main

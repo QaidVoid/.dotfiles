@@ -168,8 +168,8 @@ do
     riverctl map $mode None XF86MonBrightnessUp   spawn 'brightnessctl set +5%'
     riverctl map $mode None XF86MonBrightnessDown spawn 'brightnessctl set 5%-'
 
-    riverctl map $mode None Print spawn 'IMG=~/Pictures/$(date +"%s_grim.png") && grim $IMG && wl-copy < $IMG'
-    riverctl map $mode Shift Print spawn 'IMG=~/Pictures/$(date +"%s_grim.png") && grim -g "$(slurp)" $IMG && wl-copy < $IMG'
+    riverctl map $mode None Print spawn 'IMG=~/Pictures/Screenshot/$(date +"%s_grim.png") && grim $IMG && wl-copy < $IMG'
+    riverctl map $mode Shift Print spawn 'IMG=~/Pictures/Screenshot/$(date +"%s_grim.png") && grim -g "$(slurp)" $IMG && wl-copy < $IMG'
 done
 
 # Set background and border color
@@ -196,7 +196,7 @@ exec waybar &
 exec gentoo-pipewire-launcher &
 exec mpd &
 exec dunst &
-exec swaybg -m fill -i ~/Pictures/cyberpunk.jpg &
+exec swaybg -m fill -i ~/Pictures/darkbg.jpg &
 exec swayidle -w \
          timeout 1800 'swaylock -f -c 000000' \
          timeout 1800 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \

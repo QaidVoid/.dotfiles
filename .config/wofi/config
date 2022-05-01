@@ -1,0 +1,12 @@
+show=drun
+prompt=
+key_expand=Tab
+allow_images=true
+term=kitty
+insensitive=true
+lines=8
+columns=3
+sort_order=alphabetical
+gtk_dark=true
+image_size=48
+hide_scroll=true

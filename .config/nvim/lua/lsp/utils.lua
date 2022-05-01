@@ -16,8 +16,13 @@ local function lsp_highlight_document(client)
   end
 end
 
-M.on_attach = function(client, bufnr)
+M.on_attach = function(client, _)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+
+  if client.name == "jdtls" then
+    vim.lsp.codelens.refresh()
+  end
+
   lsp_highlight_document(client)
 end
 

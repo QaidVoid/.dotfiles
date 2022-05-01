@@ -20,7 +20,7 @@ telescope.setup {
     },
     prompt_prefix = "   ",
     selection_caret = " ",
-    entry_prefix = "  ",
+    -- entry_prefix = " ",
     path_display = { "smart" },
     layout_config = {
       horizontal = {

@@ -31,6 +31,7 @@ local options = {
   wrap             = false,                  -- wrap lines
 	shortmess        = "filnxtToOFc",          -- short messages
   iskeyword        = "@,48-57,_,-,192-255",  -- keywords
+  laststatus       = 3,
 }
 
 for k,v in pairs(options) do

@@ -18,7 +18,7 @@
 }
 
 #window {
-  background-color: #292e42;
+  background: rgba(41, 46, 66, 0.8);
   margin: auto;
   padding: 10px;
   border-radius: 20px;

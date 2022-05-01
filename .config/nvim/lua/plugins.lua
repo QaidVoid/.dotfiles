@@ -78,6 +78,7 @@ return packer.startup(function(use)
     },
     config = function () require "plugins.cmp" end
   }
+  use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
   use {
       'saecki/crates.nvim',
@@ -96,6 +97,11 @@ return packer.startup(function(use)
       "jose-elias-alvarez/null-ls.nvim"
     },
     config = function () require "lsp" end
+  }
+
+  use {
+    "ray-x/lsp_signature.nvim",
+    config = function () require "plugins.lsp_signature" end,
   }
 
   -- rust-tools

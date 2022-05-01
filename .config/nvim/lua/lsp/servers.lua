@@ -34,6 +34,9 @@ local servers = {
   sqls = {
     cmd = {"sqls"}
   },
+  sumneko_lua = {
+    cmd = {vim.env.HOME .. "/.local/bin/lua/bin/lua-language-server"}
+  },
   taplo = {
     cmd = {"taplo-lsp", "run"}
   },

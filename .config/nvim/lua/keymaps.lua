@@ -86,4 +86,4 @@ keymap('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 
 keymap('n', 'gr', '<cmd>lua require("telescope.builtin").lsp_references()<CR>', opts)
 keymap('n', 'gi', '<cmd>lua require("telescope.builtin").lsp_implementations()<CR>', opts)
-keymap('n', 'ga', '<cmd>lua require("telescope.builtin").lsp_code_actions()<CR>', opts)
+keymap('n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)

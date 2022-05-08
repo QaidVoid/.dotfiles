@@ -6,8 +6,7 @@ end
 local config = {
   debug = false,
   bind = true,
-  hint_enable = true,
-  hint_scheme = "Comment",
+  hint_enable = false,
   handler_opts = { border = "rounded" },
   max_width = 80,
 }

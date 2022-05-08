@@ -32,7 +32,8 @@ packer.init {
   },
   profile = {
     enable = true,
-  }
+  },
+  max_jobs = 16
 }
 
 return packer.startup(function(use)
@@ -52,7 +53,7 @@ return packer.startup(function(use)
   use { "windwp/nvim-autopairs", config = function() require "plugins.autopairs" end }
 
   -- bufferline
-  use { "akinsho/bufferline.nvim", config = function() require "plugins.bufferline" end }
+  use { "akinsho/bufferline.nvim", branch = "main", config = function() require "plugins.bufferline" end }
 
   -- gitsigns
   use { "lewis6991/gitsigns.nvim", config = function () require "plugins.gitsigns" end }
@@ -65,7 +66,6 @@ return packer.startup(function(use)
     "hrsh7th/nvim-cmp",
     requires = {
       -- cmp extensions
-      "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
       "saadparwaiz1/cmp_luasnip",
@@ -78,7 +78,6 @@ return packer.startup(function(use)
     },
     config = function () require "plugins.cmp" end
   }
-  use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
   use {
       'saecki/crates.nvim',
@@ -121,11 +120,7 @@ return packer.startup(function(use)
     "folke/trouble.nvim",
     requires = "kyazdani42/nvim-web-devicons",
     config = function()
-      require("trouble").setup {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      }
+      require("trouble").setup {}
     end
   }
 
@@ -184,7 +179,7 @@ return packer.startup(function(use)
   -- Colorizer
   use { "norcalli/nvim-colorizer.lua", config = function () require "plugins.colorizer" end }
 
-  -- orgmode 
+  -- orgmode
   use { "nvim-orgmode/orgmode", config = function () require "plugins.orgmode" end }
 
   if PACKER_BOOTSTRAP then

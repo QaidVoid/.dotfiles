@@ -24,6 +24,7 @@ riverctl input pointer-1267-12739-ELAN050B:00_04F3:31C3_Touchpad events enabled
 # riverctl input pointer-1267-12739-ELAN050B:00_04F3:31C3_Touchpad natural-scroll enabled
 riverctl input pointer-1267-12739-ELAN050B:00_04F3:31C3_Touchpad tap enabled
 riverctl input pointer-1267-12739-ELAN050B:00_04F3:31C3_Touchpad accel-profile flat
+riverctl input pointer-1267-12739-ELAN050B:00_04F3:31C3_Touchpad disable-while-typing enabled
 
 # ---------------------------------------#
 # Keybindings                            #
@@ -196,7 +197,7 @@ exec waybar &
 exec gentoo-pipewire-launcher &
 exec mpd &
 exec dunst &
-exec swaybg -m fill -i ~/Pictures/darkbg.jpg &
+exec wbg ~/Pictures/darkbg.jpg &
 exec swayidle -w \
          timeout 1800 'swaylock -f -c 000000' \
          timeout 1800 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \

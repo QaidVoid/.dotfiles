@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t -*-
+
 ;; Treesitter
 (use-package tree-sitter)
 (use-package tree-sitter-langs)
@@ -46,7 +48,9 @@
 (use-package company
   :hook ((emacs-lisp-mode css-mode) . company-mode)
   :bind (:map company-active-map
-              ("<tab>" . company-complete-selection))
+              ("<return>" . company-complete-selection)
+              ("<backtab>" . company-select-previous)
+              ("<tab>" . company-select-next))
   (:map lsp-mode-map
         ("<tab>" . company-indent-or-complete-common))
   :config
@@ -59,8 +63,12 @@
                       (company-abbrev company-dabbrev)))
 
   :custom
-  (company-idle-delay t)
-  (company-minimum-prefix-length 1))
+  (company-idle-delay 0.3)
+  (company-minimum-prefix-length 1)
+  (company-tooltip-align-annotations t)
+  (company-require-match nil)
+  (company-selection-wrap-around t)
+  (company-dabbrev-downcase t))
 
 (use-package company-box
   :disabled
@@ -78,6 +86,8 @@
   (lsp-rust-analyzer-cargo-watch-command "clippy")
   (lsp-rust-analyzer-server-display-inlay-hints t)
   (lsp-enable-symbol-highlighting nil)
+  (lsp-enable-links t)
+  (lsp-enable-folding t)
   (lsp-signature-auto-activate nil))
 
 (use-package lsp-ui
@@ -92,12 +102,6 @@
 
 (use-package lsp-ivy
   :commands lsp-ivy-workspace-symbol)
-
-(setq read-process-output-max (* 1024 1024)
-      treemacs-space-between-root-nodes nil
-      company-idle-delay 0.0
-      company-minimum-prefix-length 1
-      lsp-idle-delay 0.1)
 
 (qv/leader-key
   "l" '(:ignore t :wk "lsp")
@@ -159,3 +163,26 @@
 
 ;; Lua
 (use-package lua-mode)
+
+;; Go
+(use-package go-mode
+  :commands (go-mode)
+  :init
+;  (setq gofmt-command "goimports")
+;  (add-hook 'before-save-hook 'gofmt-before-save)
+  (add-hook 'go-mode-hook 'lsp-deferred))
+
+;;(use-package company-go
+;;  :after go)
+
+;;(use-package go-eldoc
+;;  :config
+;;  (add-hook 'go-mode-hook 'go-eldoc-setup))
+
+;; Java
+(setq lsp-java-server-install-dir "~/.local/share/jdtls")
+(use-package lsp-java
+  :config (add-hook 'java-mode-hook 'lsp-deferred))
+
+;(use-package dap-java
+;  :after (lsp-java))

@@ -3,6 +3,12 @@ M = {}
 local lspconfig = require"lspconfig"
 local utils = require"lsp.utils"
 
+vim.g.markdown_fenced_languages = {
+  "ts=typescript"
+}
+
+local root_pattern = lspconfig.util.root_pattern
+
 local servers = {
   bashls = {
     cmd = {"bash-language-server", "start"}
@@ -10,6 +16,10 @@ local servers = {
   clangd = {},
   cssls = {
     cmd = {"vscode-css-language-server", "--stdio"}
+  },
+  denols = {
+    cmd = {"deno", "lsp"},
+    root_dir = root_pattern("deno.json")
   },
   gopls = {
     cmd = {"gopls"}

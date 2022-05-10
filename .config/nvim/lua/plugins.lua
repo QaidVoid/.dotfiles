@@ -41,6 +41,12 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim"
   use "nvim-lua/plenary.nvim"
 
+  -- Impatient
+  use { "lewis6991/impatient.nvim", config = function() require "impatient".enable_profile() end }
+
+  -- Indent blankline
+  use { "lukas-reineke/indent-blankline.nvim", config = function() require "plugins.indent_blankline" end }
+
   -- file icons
   use "kyazdani42/nvim-web-devicons"
 
@@ -59,7 +65,8 @@ return packer.startup(function(use)
   use { "lewis6991/gitsigns.nvim", config = function () require "plugins.gitsigns" end }
 
   -- colorscheme
-  use { "folke/tokyonight.nvim", config = function () require "plugins.tokyonight" end }
+  use { "QaidVoid/tokyonight.nvim", config = function () require "plugins.tokyonight" end }
+
 
   -- completions
   use {
@@ -181,6 +188,7 @@ return packer.startup(function(use)
 
   -- orgmode
   use { "nvim-orgmode/orgmode", config = function () require "plugins.orgmode" end }
+
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()

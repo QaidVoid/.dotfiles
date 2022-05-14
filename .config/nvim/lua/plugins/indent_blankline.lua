@@ -4,8 +4,6 @@ if not ok then
 end
 
 vim.cmd[[highlight IndentBlanklineContextChar guifg=#5a5a5a gui=nocombine]]
-vim.opt.list = true
-vim.opt.listchars:append("space:⋅")
 
 require("indent_blankline").setup {
   space_char_blankline = " ",

@@ -62,10 +62,10 @@ return packer.startup(function(use)
   use { "akinsho/bufferline.nvim", branch = "main", config = function() require "plugins.bufferline" end }
 
   -- gitsigns
-  use { "lewis6991/gitsigns.nvim", config = function () require "plugins.gitsigns" end }
+  use { "lewis6991/gitsigns.nvim", config = function() require "plugins.gitsigns" end }
 
   -- colorscheme
-  use { "QaidVoid/tokyonight.nvim", config = function () require "plugins.tokyonight" end }
+  use { "QaidVoid/tokyonight.nvim", config = function() require "plugins.tokyonight" end }
 
 
   -- completions
@@ -83,16 +83,25 @@ return packer.startup(function(use)
       "L3MON4D3/LuaSnip",
       "rafamadriz/friendly-snippets",
     },
-    config = function () require "plugins.cmp" end
+    config = function() require "plugins.cmp" end
   }
 
   use {
-      'saecki/crates.nvim',
-      event = { "BufRead Cargo.toml" },
-      requires = { 'nvim-lua/plenary.nvim' },
-      config = function()
-          require('crates').setup()
-      end,
+    'saecki/crates.nvim',
+    event = { "BufRead Cargo.toml" },
+    requires = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('crates').setup()
+    end,
+  }
+
+  -- null-ls
+  use {
+    "jose-elias-alvarez/null-ls.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim"
+    },
+    config = function() require "plugins.null-ls" end,
   }
 
   -- LSP
@@ -100,14 +109,13 @@ return packer.startup(function(use)
     "neovim/nvim-lspconfig",
     requires = {
       "hrsh7th/nvim-cmp",
-      "jose-elias-alvarez/null-ls.nvim"
     },
-    config = function () require "lsp" end
+    config = function() require "lsp" end,
   }
 
   use {
     "ray-x/lsp_signature.nvim",
-    config = function () require "plugins.lsp_signature" end,
+    config = function() require "plugins.lsp_signature" end,
   }
 
   -- rust-tools
@@ -116,7 +124,7 @@ return packer.startup(function(use)
     requires = {
       "nvim-lua/plenary.nvim"
     },
-    config = function () require "plugins.rust-tools" end,
+    config = function() require "plugins.rust-tools" end,
   }
 
   -- cphelper
@@ -135,7 +143,7 @@ return packer.startup(function(use)
   -- use "mfussenegger/nvim-jdtls"
 
   -- Debug Adapter Protocol
-  use { "mfussenegger/nvim-dap", config = function () require "plugins.dap" end }
+  use { "mfussenegger/nvim-dap", config = function() require "plugins.dap" end }
 
   -- Debug Adapter Protocol UI
   use {
@@ -143,7 +151,7 @@ return packer.startup(function(use)
     requires = {
       "mfussenegger/nvim-dap"
     },
-    config = function () require "plugins.dap-ui" end
+    config = function() require "plugins.dap-ui" end
   }
 
   -- Statusline
@@ -152,7 +160,7 @@ return packer.startup(function(use)
     requires = {
       "arkav/lualine-lsp-progress"
     },
-    config = function () require "plugins.statusline" end
+    config = function() require "plugins.statusline" end
   }
 
   -- Telescope
@@ -161,7 +169,7 @@ return packer.startup(function(use)
     requires = {
       "nvim-telescope/telescope-media-files.nvim"
     },
-    config = function () require "plugins.telescope" end
+    config = function() require "plugins.telescope" end
   }
 
   -- Treesitter
@@ -171,7 +179,7 @@ return packer.startup(function(use)
       "windwp/nvim-ts-autotag"
     },
     run = ":TSUpdate",
-    config = function () require "plugins.treesitter" end
+    config = function() require "plugins.treesitter" end
   }
 
   -- Comment
@@ -180,14 +188,14 @@ return packer.startup(function(use)
     requires = {
       "JoosepAlviste/nvim-ts-context-commentstring"
     },
-    config = function () require "plugins.comment" end
+    config = function() require "plugins.comment" end
   }
 
   -- Colorizer
-  use { "norcalli/nvim-colorizer.lua", config = function () require "plugins.colorizer" end }
+  use { "norcalli/nvim-colorizer.lua", config = function() require "plugins.colorizer" end }
 
   -- orgmode
-  use { "nvim-orgmode/orgmode", config = function () require "plugins.orgmode" end }
+  use { "nvim-orgmode/orgmode", config = function() require "plugins.orgmode" end }
 
 
   if PACKER_BOOTSTRAP then

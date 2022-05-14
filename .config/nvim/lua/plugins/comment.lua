@@ -3,7 +3,7 @@ if not ok then
   return
 end
 
-comment.setup {
+comment.setup({
   ---Add a space b/w comment and the line
   padding = true,
   ---Whether the cursor should stay at its position
@@ -12,29 +12,29 @@ comment.setup {
   ---Lines to be ignored while comment/uncomment.
   ---Could be a regex string or a function that returns a regex string.
   ---Example: Use '^$' to ignore empty lines
-  ignore = '^$',
+  ignore = "^$",
   ---LHS of toggle mappings in NORMAL + VISUAL mode
   toggler = {
     ---Line-comment toggle keymap
-    line = 'gcc',
+    line = "gcc",
     ---Block-comment toggle keymap
-    block = 'gbc'
+    block = "gbc",
   },
   ---LHS of operator-pending mappings in NORMAL + VISUAL mode
   opleader = {
     ---Line-comment keymap
-    line = 'gc',
+    line = "gc",
     ---Block-comment keymap
-    block = 'gb',
+    block = "gb",
   },
   ---LHS of extra mappings
   extra = {
     ---Add comment on the line above
-    above = 'gcO',
+    above = "gcO",
     ---Add comment on the line below
-    below = 'gco',
+    below = "gco",
     ---Add comment at the end of line
-    eol = 'gcA',
+    eol = "gcA",
   },
   ---Create basic (operator-pending) and extended mappings for NORMAL + VISUAL mode
   mappings = {
@@ -50,10 +50,10 @@ comment.setup {
     extended = false,
   },
   ---Pre-hook, called before commenting the line
-  pre_hook = function (ctx)
-    if vim.bo.filetype == 'typescriptreact' then
-      local U = require"Comment.utils"
-      local type = ctx.ctype == U.ctype.line and '__default' or '__multiline'
+  pre_hook = function(ctx)
+    if vim.bo.filetype == "typescriptreact" then
+      local U = require("Comment.utils")
+      local type = ctx.ctype == U.ctype.line and "__default" or "__multiline"
 
       local location = nil
       if ctx.ctype == U.ctype.block then
@@ -62,12 +62,12 @@ comment.setup {
         location = require("ts_context_commentstring.utils").get_visual_start_location()
       end
 
-      return require("ts_context_commentstring.internal").calculate_commentstring {
+      return require("ts_context_commentstring.internal").calculate_commentstring({
         key = type,
         location = location,
-      }
+      })
     end
   end,
   ---Post-hook, called after commenting is done
   post_hook = nil,
-}
+})

@@ -4,13 +4,13 @@ if not ok then
 end
 
 colorizer.setup({
-  '*';
+  "*",
 }, {
-  RGB = true;
-  RRGGBB = true;
-  names = true;
-  RRGGBBAA = true;
-  rgb_fn = true;
-  hsl_fn = true;
-  mode = "background"
+  RGB = true,
+  RRGGBB = true,
+  names = true,
+  RRGGBBAA = true,
+  rgb_fn = true,
+  hsl_fn = true,
+  mode = "background",
 })

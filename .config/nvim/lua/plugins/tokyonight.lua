@@ -11,4 +11,4 @@ vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 vim.g.tokyonight_dark_float = 1
 vim.g.tokyonight_dark_sidebar = 1
 
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd([[colorscheme tokyonight]])

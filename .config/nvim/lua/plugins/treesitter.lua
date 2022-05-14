@@ -3,7 +3,7 @@ if not ok then
   return
 end
 
-tsconfig.setup {
+tsconfig.setup({
   ensure_installed = "all",
   sync_install = false,
   ignore_install = {},
@@ -21,4 +21,4 @@ tsconfig.setup {
   context_commentstring = {
     enable = true,
   },
-}
+})

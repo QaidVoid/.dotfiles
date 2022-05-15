@@ -80,11 +80,11 @@ keymap("n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>
 keymap("n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
 keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 keymap("n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts)
-keymap("n", "<Leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
+keymap("n", "<Leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 keymap("n", "<Leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
 keymap("n", "<Leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 
 keymap("n", "gr", '<cmd>lua require("telescope.builtin").lsp_references()<CR>', opts)
 keymap("n", "gi", '<cmd>lua require("telescope.builtin").lsp_implementations()<CR>', opts)
 keymap("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-keymap("n", "fd", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+keymap("n", "fd", "<cmd>lua vim.lsp.buf.format{ async = true }<CR>", opts)

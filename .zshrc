@@ -31,6 +31,7 @@ export PATH="$HOME/dev/flutter/bin:$PATH"
 export MOZ_ENABLE_WAYLAND=1
 export JDTLS_HOME="$HOME/.local/share/jdtls"
 export _JAVA_AWT_WM_NONREPARENTING=1
+export PATH="$HOME/.deno/bin:$PATH"
 
 if command -v cargo &> /dev/null; then
   export PATH="$HOME/.cargo/bin:$PATH"

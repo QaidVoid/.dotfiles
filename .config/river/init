@@ -20,11 +20,10 @@ mod=Super
 # ---------------------------------------#
 # INPUT CONFIGURATION                    #
 # ---------------------------------------#
-riverctl input pointer-1267-12739-ELAN050B:00_04F3:31C3_Touchpad events enabled
-# riverctl input pointer-1267-12739-ELAN050B:00_04F3:31C3_Touchpad natural-scroll enabled
-riverctl input pointer-1267-12739-ELAN050B:00_04F3:31C3_Touchpad tap enabled
-riverctl input pointer-1267-12739-ELAN050B:00_04F3:31C3_Touchpad accel-profile flat
-riverctl input pointer-1267-12739-ELAN050B:00_04F3:31C3_Touchpad disable-while-typing enabled
+riverctl input 1267:12739:ELAN050B:00_04F3:31C3_Touchpad events enabled
+riverctl input 1267:12739:ELAN050B:00_04F3:31C3_Touchpad tap enabled
+riverctl input 1267:12739:ELAN050B:00_04F3:31C3_Touchpad accel-profile flat
+riverctl input 1267:12739:ELAN050B:00_04F3:31C3_Touchpad disable-while-typing enabled
 
 # ---------------------------------------#
 # Keybindings                            #
@@ -58,11 +57,11 @@ riverctl map normal $mod+Shift Comma send-to-output previous
 # Super+Shift+Return to bump the focused view to the top of the layout stack
 riverctl map normal $mod+Shift Return zoom
 
-# Super+H and Super+L to decrease/increase the main ratio of rivertile(1)
+# Super+H and Super+L to decrease/increase the main ratio of rivercarro
 riverctl map normal $mod H send-layout-cmd rivercarro "main-ratio -0.05"
 riverctl map normal $mod L send-layout-cmd rivercarro "main-ratio +0.05"
 
-# Super+Shift+H and Super+Shift+L to increment/decrement the main count of rivertile(1)
+# Super+Shift+H and Super+Shift+L to increment/decrement the main count of rivercarro
 riverctl map normal $mod+Shift H send-layout-cmd rivercarro "main-count +1"
 riverctl map normal $mod+Shift L send-layout-cmd rivercarro "main-count -1"
 
@@ -188,13 +187,13 @@ riverctl float-filter-add title "popup title with spaces"
 # Set app-ids and titles of views which should use client side decorations
 riverctl csd-filter-add app-id "gedit"
 
-# Set and exec into the default layout generator, rivertile.
+# Set and exec into the layout generator, rivercarro.
 # River will send the process group of the init executable SIGTERM on exit.
 riverctl default-layout rivercarro
 
 exec brightnessctl s 30% &
 exec waybar &
-exec gentoo-pipewire-launcher &
+exec pipewire &
 exec mpd &
 exec dunst &
 exec wbg ~/Pictures/darkbg.jpg &
@@ -202,5 +201,4 @@ exec swayidle -w \
          timeout 1800 'swaylock -f -c 000000' \
          timeout 1800 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
          before-sleep 'swaylock -f -c 000000' &
-# exec rivertile -view-padding 5 -outer-padding 5 -main-ratio 0.5
 exec rivercarro -no-smart-gaps -main-ratio 0.5

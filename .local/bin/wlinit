@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if test -z "${XDG_RUNTIME_DIR}"; then
+  export XDG_RUNTIME_DIR=/tmp/$(id -u)-runtime-dir
+	if ! test -d "${XDG_RUNTIME_DIR}"; then
+		mkdir "${XDG_RUNTIME_DIR}"
+		chmod 0700 "${XDG_RUNTIME_DIR}"
+	fi
+fi
+
+export MOZ_ENABLE_WAYLAND=1
+export XDG_CURRENT_DESKTOP=river
+export XKB_DEFAULT_LAYOUT=us,us
+export XKB_DEFAULT_VARIANT=dvorak,
+export XKB_DEFAULT_OPTIONS=caps:escape,grp:alt_shift_toggle
+dbus-run-session river

@@ -42,6 +42,7 @@ return packer.startup(function(use)
   use("nvim-lua/plenary.nvim")
 
   use("gpanders/editorconfig.nvim")
+  use("elkowar/yuck.vim")
 
   use({
     "lewis6991/impatient.nvim",

@@ -29,10 +29,11 @@ export GPG_TTY=$TTY
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/dev/flutter/bin:$PATH"
 export MOZ_ENABLE_WAYLAND=1
-export JDTLS_HOME="$HOME/.local/share/jdtls"
+export JDTLS_HOME="$HOME/.local/share/eclipse/jdtls"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export PATH="$HOME/.deno/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$PATH"
 
 if command -v go &> /dev/null; then
   export PATH="$(go env GOPATH)/bin:$PATH"
@@ -49,3 +50,4 @@ alias cat="bat"
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+. ~/dev/z/z.sh

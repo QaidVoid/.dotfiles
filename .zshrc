@@ -20,17 +20,20 @@ fpath+=~/.zfunc
 compinit
 # End of lines added by compinstall
 
-if [ -f "/usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh" ]; then
-    source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
+if [ -f "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+if [ -f "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"]; then
+  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 export EDITOR=nvim
 export GPG_TTY=$TTY
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/dev/flutter/bin:$PATH"
 export MOZ_ENABLE_WAYLAND=1
 export JDTLS_HOME="$HOME/.local/share/eclipse/jdtls"
 export _JAVA_AWT_WM_NONREPARENTING=1
+
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.deno/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
@@ -49,5 +52,4 @@ alias ls="exa"
 alias cat="bat"
 
 eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
 . ~/dev/z/z.sh

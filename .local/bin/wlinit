@@ -1,8 +1,0 @@
-#!/bin/bash
-
-export MOZ_ENABLE_WAYLAND=1
-export XDG_CURRENT_DESKTOP=river
-export XKB_DEFAULT_LAYOUT=us,us
-export XKB_DEFAULT_VARIANT=dvorak,
-export XKB_DEFAULT_OPTIONS=caps:escape,grp:alt_shift_toggle
-dbus-run-session river

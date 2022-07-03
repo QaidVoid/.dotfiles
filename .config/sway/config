@@ -7,7 +7,7 @@ set $up k
 set $right l
 
 set $term kitty
-set $menu wofi | xargs swaymsg exec --
+set $menu tofi-run | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -196,8 +196,16 @@ bindsym Shift+XF86AudioRaiseVolume exec pactl set-source-volume @DEFAULT_SOURCE@
 bindsym Shift+XF86AudioLowerVolume exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
 bindsym Shift+XF86AudioMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-bindsym Print exec IMG=~/Pictures/screenshot_$(date +%Y%m%d_%H%M%S).webp && grim $IMG && wl-copy < $IMG && dunstify "Screenshot saved"
-bindsym Shift+Print exec IMG=~/Pictures/screenshot_$(date +%Y%m%d_%H%M%S).webp && grim -g "$(slurp)" $IMG && wl-copy < $IMG && dunstify "Screenshot saved"
+bindsym Print exec IMG=~/Pictures/screenshot_$(date +%Y%m%d_%H%M%S).webp && grim $IMG && wl-copy < $IMG && notify-send "Screenshot saved"
+bindsym Shift+Print exec IMG=~/Pictures/screenshot_$(date +%Y%m%d_%H%M%S).webp && grim -g "$(slurp)" $IMG && wl-copy < $IMG && notify-send "Screenshot saved"
+
+#
+# Gaps
+#
+gaps inner 5
+gaps outer 8
+default_border pixel
+default_floating_border pixel
 
 exec brightnessctl s 10%
 exec pipewire

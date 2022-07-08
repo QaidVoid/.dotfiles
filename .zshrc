@@ -32,6 +32,7 @@ export GPG_TTY=$TTY
 export MOZ_ENABLE_WAYLAND=1
 export JDTLS_HOME="$HOME/.local/share/eclipse/jdtls"
 export _JAVA_AWT_WM_NONREPARENTING=1
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.deno/bin:$PATH"
@@ -50,6 +51,7 @@ alias psmem='ps auxf | sort -nr -k 4 | head -5'
 alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 alias ls="exa"
 alias cat="bat"
+alias df="duf"
 
 eval "$(starship init zsh)"
 . ~/dev/z/z.sh

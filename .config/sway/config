@@ -17,7 +17,8 @@ output * bg ~/Pictures/Wallpapers/darkbg.jpg fill
 
 # Example configuration:
 #
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+output eDP-1 resolution 1920x1080 position 0,0
+output HDMI-A-1 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -202,14 +203,40 @@ bindsym Shift+Print exec IMG=~/Pictures/screenshot_$(date +%Y%m%d_%H%M%S).webp &
 #
 # Gaps
 #
-gaps inner 5
-gaps outer 8
+gaps {
+  inner 5
+  outer 8
+}
+
+#
+# Disable window title
+#
 default_border pixel
 default_floating_border pixel
+
+#
+# Window Rules
+#
+assign {
+  [app_id="Firefox"] 2
+  [app_id="telegramdesktop"] 3
+  [app_id="libreoffice"] 4
+  [app_id="virt-manager"] 5
+}
+
+for_window {
+  [app_id="Firefox" title="^Library$"] floating enable
+  [app_id="Firefox" title="^Picture-in-Picture$"] floating enable; resize set 540px 380px; move position 1355px 630px
+  [window_role="pop-up"] floating enable
+  [window_role="dialog"] floating enable
+  [window_type="dialog"] floating enable
+
+  [app_id=".*"] opacity 0.98
+}
 
 exec brightnessctl s 10%
 exec pipewire
 exec pipewire-pulse
 exec mpd
-exec eww open bar
+exec ~/.config/eww/launch_bar.sh
 include /etc/sway/config.d/*

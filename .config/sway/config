@@ -182,19 +182,19 @@ bindsym $mod+r mode "resize"
 #
 # Multimedia
 #
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%- && notify-send "Brightness: $(echo $(($(brightnessctl get) * 100 / 255)))%"
+bindsym XF86MonBrightnessUp exec brightnessctl set +5% && notify-send "Brightness: $(echo $(($(brightnessctl get) * 100 / 255)))%"
 
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && notify-send "$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}')"
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && notify-send "$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}')"
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 bindsym Mod4+XF86AudioRaiseVolume exec mpc next
 bindsym Mod4+XF86AudioLowerVolume exec mpc prev
 bindsym Mod4+XF86AudioMute exec mpc toggle
 
-bindsym Shift+XF86AudioRaiseVolume exec pactl set-source-volume @DEFAULT_SOURCE@ +5%
-bindsym Shift+XF86AudioLowerVolume exec pactl set-source-volume @DEFAULT_SOURCE@ -5%
+bindsym Shift+XF86AudioRaiseVolume exec pactl set-source-volume @DEFAULT_SOURCE@ +5% && notify-send "$(pactl get-source-volume @DEFAULT_SOURCE@ | awk '{print $5}')"
+bindsym Shift+XF86AudioLowerVolume exec pactl set-source-volume @DEFAULT_SOURCE@ -5% && notify-send "$(pactl get-source-volume @DEFAULT_SOURCE@ | awk '{print $5}')"
 bindsym Shift+XF86AudioMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 bindsym Print exec IMG=~/Pictures/screenshot_$(date +%Y%m%d_%H%M%S).webp && grim $IMG && wl-copy < $IMG && notify-send "Screenshot saved"
@@ -232,8 +232,11 @@ for_window {
   [window_type="dialog"] floating enable
 
   [app_id=".*"] opacity 0.98
+  [app_id="Firefox"] opacity 0.9
+  [app_id="libreoffice"] opacity 0.93
 }
 
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec brightnessctl s 10%
 exec pipewire
 exec pipewire-pulse
